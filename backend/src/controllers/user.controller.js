@@ -66,7 +66,9 @@ export const deleteUser = async (req, res) => {
 
         if (user.success == false) return res.status(404).send(user);
 
-        const result = await UserRepository.deleteUser(user?.data?.id);
+        const userId=JSON.stringify(user.data[0]._id)
+
+        const result = await UserRepository.deleteUser(user.data[0]._id);
 
         return res.status(200).send(result);
 

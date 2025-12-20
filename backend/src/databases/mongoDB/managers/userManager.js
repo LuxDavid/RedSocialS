@@ -53,7 +53,7 @@ class UserManager {
   
             const user = await userModel.find({ email: emailUser });
 
-            if (!user) throw new Error("Fail to search user");
+            if (user.length <1) throw new Error("Fail to search user");
 
             const result = responseMannager(true, user, "User found");
             return result;
@@ -81,7 +81,7 @@ class UserManager {
     //----------------------------------------------------------------
     async deleteUser(idUser) {
         try {
-            const user = await userModel.findByIdAndDelete(idUser, { $set: newValues }, { new: true, runValidator: true });
+            const user = await userModel.findByIdAndDelete(idUser);
 
             const result = responseMannager(true, user, "User deleted");
             return result;
