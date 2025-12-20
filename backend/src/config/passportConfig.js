@@ -1,0 +1,71 @@
+import passport from "passport";
+import passportJWT from "passport-jwt";
+import GitHubStrategy from "passport-github2";
+import local from "passport-local"
+
+import { UserRepository } from "../services/index.js";
+import {createHash, isValidPassword, generateToken, cookieExtractor} from "../helpers/auths.js"
+import config from "./config.js";
+
+import {DateTime} from "luxon";
+
+const {KEY, ADMINUSER, ADMINPASS} = config;
+
+const LocalStrategy= local.Strategy;
+const JWTStrategy= passportJWT.Strategy;
+
+//------------------------------------------------------------------------
+
+const initializePassport= () => {
+    passport.use('current', new JWTStrategy({
+        secretOrKey:KEY,
+        jwtFromRequest:passportJWT.ExtractJwt.fromExtractors([cookieExtractor])
+    }, (jwt_payload, done) => {
+        return done(null, jwt_payload);
+    }));
+
+
+    //------------------------------------------------------------------------
+
+    passport.use('login', new LocalStrategy(
+        {usernameField:'email'},
+        async (username, isValidPassword, done) => {
+
+            try {
+                const user= await UserRepository.getUserByEmail(username);
+                if(!user){
+                    return done(null, false)
+                }
+
+                if(!isValidPassword(user,password)){
+                    return done(null, false);
+                }
+
+                const token= generateToken(user);
+                user.token=token;
+
+                user.lastConnection= DateTime.now().toLocaleString();
+
+                await UserRepository.updateUser(user._id, user);
+
+                return done(null,user);
+
+            } catch (error) {
+                return done('Error login'+error);
+            }
+        }
+    ));
+
+    //------------------------------------------------------------------------
+    passport.serializeUser((user, done)=>{
+        done(null, user._id);
+    });
+
+    //------------------------------------------------------------------------
+    passport.deserializeUser(async (id,done) => {
+        const user= await UserRepository.getUser(id);
+        done(null, user);
+    });
+}
+
+export default initializePassport;

@@ -3,8 +3,6 @@ import { changeRole, createUser,deleteUser,getUsers,getUserByEmail } from "../co
 
 const router= Router();
 
-router.get("/", (req,res)=> res.send("Router de Users"));
-
 //----------------------------------------------------------
 router.get('/listUsers', getUsers);
 

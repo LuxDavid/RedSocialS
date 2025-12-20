@@ -1,6 +1,8 @@
 import express from "express";
+import session from "express-session";
 import cookieParser from "cookie-parser";
 import passport from "passport";
+import initializePassport from "./src/config/passportConfig.js";
 
 //Importacion de routers
 import cartRouter from "./src/router/cartRouter.js";
@@ -10,13 +12,23 @@ import productRouter from "./src/router/productRouter.js";
 
 //Importacion de variables de ambiente
 import config from "./src/config/config.js";
-const {PORT} =config;
+const {PORT, KEY} =config;
 
 const app= express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
+
+initializePassport();
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/api/carts", cartRouter);
 app.use("/api/messages", messageRouter);
