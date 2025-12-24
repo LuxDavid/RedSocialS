@@ -1,4 +1,5 @@
 $color-borde: #03f484;
+$fontPage: "monospace";
 
 * {
     padding: 0px;
@@ -6,7 +7,7 @@ $color-borde: #03f484;
 }
 
 body {
-    background-color: #ccc;
+    background-color: #1b1b1b;
 }
 
 #layout__header {
@@ -74,44 +75,119 @@ body {
         width: 100%;
         height: 100%;
 
-            .nav__item--link {
+        .nav__item--link {
             color: white;
             text-decoration: none;
             color: #0f0;
-            font-family: monospace;
+            font-family: $fontPage;
             text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
             font-size: 1.3rem;
         }
     }
 }
 
-#layout__content{
+#layout__content {
     display: flex;
     flex-flow: column wrap;
     padding-top: 3.5rem;
     min-height: 100vh;
     width: 95%;
-    margin-left: 2.2rem ;
+    margin-left: 2.2rem;
     border: 1px solid white;
 
-    .form-page{
-        padding-top: 1.5rem;
+    .form-page {
+        margin-top: 4rem;
         margin-left: auto;
         margin-right: auto;
         display: flex;
         flex-direction: column;
+        position: relative;
         width: 22rem;
-        height: 900px;
-        border: 1px solid red;
+        height: 20rem;
+        background: transparent;
+        color: #0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        letter-spacing: 3px;
+        text-shadow: 0 0 10px #0f0;
+        border-radius: 14px;
+        overflow: hidden;
 
-        input[type=submit]{
-            margin-top: 1.5rem;
+        input[type=submit] {
+            height: 2rem;
+            background-color: #141414;
+            color: #03f484;
+            cursor: pointer;
+            font-family: $fontPage;
+            font-size: 15px;
+            width: 17rem;
         }
-        
-        .login-input{
+
+        input[type=submit]:hover {
+            background-color: #03f484;
+            box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
+            color: white;
+        }
+
+        .login-input:focus {
+            box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
+        }
+
+        .labels-login {
+            font-family: $fontPage;
+            color: white;
+            width: 17rem;
+            margin-bottom: 1rem;
+            font-size: 17px;
+        }
+
+        .login-input {
             margin-bottom: 2rem;
             height: 1.5rem;
-            border-radius:10px;
+            border-radius: 10px;
+            width: 17rem;
         }
     }
+
+    .form-page::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+
+    background: conic-gradient(from 0deg,
+            transparent 0%,
+            #00ff00 10%,
+            #b3ffb3 20%,
+            transparent 30%,
+            #00ff00 40%,
+            transparent 60%,
+            #b3ffb3 75%,
+            transparent 100%);
+
+    animation: spin 1.2s linear infinite;
+    z-index: 0;
+}
+
+.form-page::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: inherit;
+    background: #000;
+    z-index: 1;
+}
+
+.form-page>* {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
 }

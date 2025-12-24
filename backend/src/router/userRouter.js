@@ -1,10 +1,11 @@
 import {Router} from "express";
 import { changeRole, createUser,deleteUser,getUsers,getUserByEmail } from "../controllers/user.controller.js";
+import passport from "passport";
 
 const router= Router();
 
 //----------------------------------------------------------
-router.get('/listUsers', getUsers);
+router.get('/listUsers', passport.authenticate('current', {session:false}),getUsers);
 
 //----------------------------------------------------------
 router.post('/email', getUserByEmail);

@@ -1,3 +1,4 @@
+import passport from "passport";
 
 //--------------------------------------------------------------------------------
 export const login= (req,res) => {
@@ -10,4 +11,11 @@ export const login= (req,res) => {
         message:"Login success",
         email:req.user.email
     });
+}
+
+export const current= (req,res) => {
+
+    console.log(req.user);
+
+    res.status(200).send(req.user);
 }
