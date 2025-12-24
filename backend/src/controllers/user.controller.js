@@ -100,4 +100,3 @@ export const createUser= async (req,res) => {
         res.status(500).send({ status: 'error', message: 'Fail data in database' });
     }
 }
-
