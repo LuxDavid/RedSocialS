@@ -55,7 +55,7 @@ const Login = () => {
 
   return (
     <>
-        <form method='POST' onSubmit={login} className='form-page'>
+        <form method='POST' onSubmit={login} className='form-page electric-box'>
 
                 <label htmlFor="email" className='labels-login'>Email</label>
                 <input type="email" name='email' className='login-input' onChange={changed}/>
@@ -63,7 +63,7 @@ const Login = () => {
                 <label htmlFor="password" className='labels-login'>Password</label>
                 <input type="password" name='password' className='login-input' onChange={changed}/>
 
-                <input type="submit" value="Iniciar sesión"/>
+                <input type="submit" value="Iniciar sesión" />
 
         </form>
     </>
