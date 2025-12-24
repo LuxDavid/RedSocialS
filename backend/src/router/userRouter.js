@@ -7,7 +7,7 @@ const router= Router();
 router.get('/listUsers', getUsers);
 
 //----------------------------------------------------------
-router.get('/email', getUserByEmail);
+router.post('/email', getUserByEmail);
 
 //----------------------------------------------------------
 router.put('/change', changeRole);

@@ -29,15 +29,19 @@ const initializePassport= () => {
 
     passport.use('login', new LocalStrategy(
         {usernameField:'email'},
-        async (username, isValidPassword, done) => {
+        async (username, password, done) => {
 
             try {
+                
                 const user= await UserRepository.getUserByEmail(username);
                 if(!user){
                     return done(null, false)
                 }
 
-                if(!isValidPassword(user,password)){
+                console.log(user.data[0]);
+                
+
+                if(!isValidPassword(user.data[0],password)){
                     return done(null, false);
                 }
 

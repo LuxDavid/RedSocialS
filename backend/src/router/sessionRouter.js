@@ -5,6 +5,6 @@ import passport from "passport";
 const router=Router();
 
 //-------------------------------------------------
-router.post("/login", login)
+router.post("/login", passport.authenticate('login', {session:false}) ,login)
 
 export default router;

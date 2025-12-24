@@ -1,4 +1,5 @@
 import { UserRepository } from "../services/index.js";
+import {createHash} from "../helpers/auths.js";
 
 export const changeRole = async (req, res) => {
 
@@ -84,6 +85,10 @@ export const createUser= async (req,res) => {
 
     try {
         const user=req.body;
+
+        const passwordHash= createHash(user.password);
+
+        user.password= passwordHash;
 
         const result= await UserRepository.createUser(user);
 

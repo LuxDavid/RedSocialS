@@ -86,7 +86,32 @@ body {
 }
 
 #layout__content{
+    display: flex;
+    flex-flow: column wrap;
     padding-top: 3.5rem;
-    height: 1250px;
-    width: 80%;
+    min-height: 100vh;
+    width: 95%;
+    margin-left: 2.2rem ;
+    border: 1px solid white;
+
+    .form-page{
+        padding-top: 1.5rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        width: 22rem;
+        height: 900px;
+        border: 1px solid red;
+
+        input[type=submit]{
+            margin-top: 1.5rem;
+        }
+        
+        .login-input{
+            margin-bottom: 2rem;
+            height: 1.5rem;
+            border-radius:10px;
+        }
+    }
 }

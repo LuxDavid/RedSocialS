@@ -1,6 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
 import ItemListContainer from "../components/ItemListContainer.jsx";
 import Layout from "../components/Layout/Layout.jsx";
+import Login from "../components/Login.jsx";
 
 export const router= createBrowserRouter([
 
@@ -9,8 +10,8 @@ export const router= createBrowserRouter([
         element:<Layout/>,
         children:[
             {
-                index:true,
-                element:<ItemListContainer/>
+                path: 'login',
+                element:<Login/>
             }
         ]
     }
