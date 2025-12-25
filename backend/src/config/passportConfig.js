@@ -48,8 +48,6 @@ const initializePassport= () => {
 
                 user.data[0].lastConnection= DateTime.now().toLocaleString();
 
-                console.log(user.data[0]);
-
                 await UserRepository.updateUser(user.data[0]._id, user);
 
                 return done(null,user.data[0]);

@@ -1,9 +1,11 @@
 $color-borde: #03f484;
 $fontPage: "monospace";
 
+
 * {
     padding: 0px;
     margin: 0px;
+     box-sizing: border-box;
 }
 
 body {
@@ -14,8 +16,12 @@ body {
     position: fixed;
     display: flex;
     width: 100%;
-    height: 3.5rem;
+    height: 4rem;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     background-color: #141414;
+    z-index: 1000;
 
     .layout__header--logo {
         width: 4rem;
@@ -88,12 +94,25 @@ body {
 
 #layout__content {
     display: flex;
-    flex-flow: column wrap;
-    padding-top: 3.5rem;
+    flex-flow: row wrap;
+    padding-top: 5rem;
     min-height: 100vh;
     width: 95%;
     margin-left: 2.2rem;
     border: 1px solid white;
+
+    .cards__container{
+        margin-left: 5rem;
+        margin-right: 1rem;
+        display: flex;
+        position: static;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .card__product{
+        outline: 2px solid red;
+    }
 
     .form-page {
         margin-top: 4rem;
@@ -183,6 +202,10 @@ body {
 .form-page>* {
     position: relative;
     z-index: 2;
+}
+
+.product--text{
+    font-size: 12px;
 }
 
 @keyframes spin {

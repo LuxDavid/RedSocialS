@@ -9,7 +9,6 @@ const Layout = () => {
             <Header />
             <div id="layout__content">
                 <Outlet/>
-                <Footer/>
             </div>
         </div>
     )

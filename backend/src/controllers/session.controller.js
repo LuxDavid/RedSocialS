@@ -1,5 +1,3 @@
-import passport from "passport";
-
 //--------------------------------------------------------------------------------
 export const login= (req,res) => {
     res.cookie('cookieUS', req.user.token,{
@@ -14,8 +12,6 @@ export const login= (req,res) => {
 }
 
 export const current= (req,res) => {
-
-    console.log(req.user);
 
     res.status(200).send(req.user);
 }

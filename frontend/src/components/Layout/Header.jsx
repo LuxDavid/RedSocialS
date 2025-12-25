@@ -1,4 +1,3 @@
-import React from 'react';
 import Nav from './Nav.jsx';
 import Logo from '../../public/img/logo-verde.png';
 const Header = () => {
