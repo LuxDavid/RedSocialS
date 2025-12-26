@@ -17,6 +17,21 @@ class ProductManager {
             return result;
         }
     }
+
+    async getProducts() {
+        try {
+            
+            const products = await productModel.paginate({}, {limit:10});
+
+            if (!products) throw new Error("Fail to seach products in database");
+
+            const result = responseMannager(true, products, "List of products");
+            return result;
+        } catch (error) {
+            const result = responseMannager(false, null, 'Fail to search products', error.message);
+            return result;
+        }
+    }
 }
 
 export default ProductManager;
