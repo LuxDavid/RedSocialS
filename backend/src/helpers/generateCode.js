@@ -1,4 +1,4 @@
-export const generateCode= async() =>{
+export const generateCode= () =>{
     const characters= '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let result='';
 

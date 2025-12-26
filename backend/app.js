@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import passport from "passport";
 import initializePassport from "./src/config/passportConfig.js";
 import cors from "cors";
+import compression from 'express-compression';
 
 //Importacion de routers
 import cartRouter from "./src/router/cartRouter.js";
@@ -35,6 +36,10 @@ app.use(session({
 initializePassport();
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(compression({
+    brotli:{enabled:true, zlib:{}}
+}));
 
 app.use("/api/carts", cartRouter);
 app.use("/api/messages", messageRouter);

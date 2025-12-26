@@ -13,12 +13,12 @@ switch(PERSISTENCE){
 
     await mongoose.connect(MONGO_URL, {dbName:MONGO_DBNAME});
 
-    // const {default:ProductsMongo} = await import('./mongoDB/managers/productManager.js');
+    const {default:ProductsMongo} = await import('./mongoDB/managers/productManager.js');
     // const {default:CartsMongo} = await import('./mongoDB/managers/cartManager.js');
     // const {default:TicketsMongo} = await import('./mongoDB/managers/ticketManager.js');
     const {default:UsersMongo} = await import('./mongoDB/managers/userManager.js');
 
-    // Products= ProductsMongo;
+    Products= ProductsMongo;
     // Carts=CartsMongo;
     // Tickets=TicketsMongo;
     Users=UsersMongo;
