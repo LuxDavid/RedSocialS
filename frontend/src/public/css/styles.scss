@@ -1,7 +1,6 @@
 $color-borde: #03f484;
 $fontPage: "monospace";
 
-
 * {
     padding: 0px;
     margin: 0px;
@@ -102,11 +101,9 @@ body {
     border: 1px solid white;
 
     .cards__container {
-        margin-left: 5rem;
-        margin-right: 1rem;
         display: flex;
-        position: static;
         flex-wrap: wrap;
+        margin-left: 4.4rem;
         gap: 1rem;
     }
 
@@ -125,12 +122,6 @@ body {
         background-color: $color-borde;
         font-family: $fontPage;
     }
-    }
-
-    
-
-    .card__product {
-        outline: 2px solid red;
     }
 
     .form-page {
@@ -163,7 +154,7 @@ body {
             width: 17rem;
         }
 
-        input[type=submit]:hover {
+        input[type=submit]:hover{
             background-color: #03f484;
             box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
             color: white;
@@ -237,4 +228,33 @@ body {
 
 #footer {
     color: white;
+}
+
+.outline--buton{
+    font-size: 12px;
+    font-family: $fontPage;
+    color: $color-borde;
+    border: 1px solid $color-borde;
+}
+
+ .outline--buton:hover{
+            background-color: #03f484;
+            box-shadow: 0 0 2px #0f0, 0 0 2px #0f0, 0 0 2px #0f0;
+            color: white;
+            border: 1px solid $color-borde;
+        }
+
+.product--text--card{
+    text-decoration: none;
+    font-family: $fontPage;
+    color: $color-borde;
+    font-size: 15px;
+}
+
+.product--text--card:hover{
+   text-shadow: 0 0 1px #0f0, 0 0 1px #0f0, 0 0 1px #0f0;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+    height: 36%;
 }

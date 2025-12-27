@@ -87,11 +87,9 @@ body {
   border: 1px solid white;
 }
 #layout__content .cards__container {
-  margin-left: 5rem;
-  margin-right: 1rem;
   display: flex;
-  position: static;
   flex-wrap: wrap;
+  margin-left: 4.4rem;
   gap: 1rem;
 }
 #layout__content #buttonProducts__container {
@@ -108,9 +106,6 @@ body {
   height: 2rem;
   background-color: #03f484;
   font-family: "monospace";
-}
-#layout__content .card__product {
-  outline: 2px solid red;
 }
 #layout__content .form-page {
   margin-top: 4rem;
@@ -195,6 +190,35 @@ body {
 
 #footer {
   color: white;
+}
+
+.outline--buton {
+  font-size: 12px;
+  font-family: "monospace";
+  color: #03f484;
+  border: 1px solid #03f484;
+}
+
+.outline--buton:hover {
+  background-color: #03f484;
+  box-shadow: 0 0 2px #0f0, 0 0 2px #0f0, 0 0 2px #0f0;
+  color: white;
+  border: 1px solid #03f484;
+}
+
+.product--text--card {
+  text-decoration: none;
+  font-family: "monospace";
+  color: #03f484;
+  font-size: 15px;
+}
+
+.product--text--card:hover {
+  text-shadow: 0 0 1px #0f0, 0 0 1px #0f0, 0 0 1px #0f0;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+  height: 36%;
 }
 
 /*# sourceMappingURL=index.css.map */
