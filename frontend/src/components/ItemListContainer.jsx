@@ -1,22 +1,32 @@
 import Item from "./Item.jsx";
 import { useState, useEffect } from "react";
 import { getProducts } from "../databases/mongoDB/products.db.js";
-import {Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
 function ItemListContainer() {
 
   const [products, setProducts] = useState({ docs: [] });
 
-  useEffect(() => {
+  const productsAjax= (page) => {
+    getProducts(page)
+    .then((data)=> {
+      setProducts(data);
+    });
+  }
 
-    getProducts()
-      .then(data => {
-        setProducts(data);
-        console.log(data);
-        
-      });
-  }, [products]);
+  const nextPage= () => {
+      productsAjax(products?.page+1);
+      console.log(products?.page+1);
+  }
+
+   const prevPage= () => {
+      productsAjax(products?.page-1);
+      console.log(products?.page-1);
+  }
+
+  useEffect(() => {
+      productsAjax()
+  }, []);
 
 
   return (
@@ -33,8 +43,8 @@ function ItemListContainer() {
 
       <div id="buttonProducts__container">
         
-        { products?.hasNextPage && <Button className="button--change">Pagina Siguiente</Button> }
-        { products?.hasPrevPage && <Button className="button--change">Pagina Anterior</Button> }
+        { products?.hasNextPage && <Button className="button--change" onClick={nextPage}>Pagina Siguiente</Button> }
+        { products?.hasPrevPage && <Button className="button--change" onClick={prevPage}>Pagina Anterior</Button> }
       </div>
     </>
 
