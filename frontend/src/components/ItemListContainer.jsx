@@ -1,130 +1,43 @@
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Item from "./Item.jsx";
+import { useState, useEffect } from "react";
+import { getProducts } from "../databases/mongoDB/products.db.js";
+import {Link} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 function ItemListContainer() {
+
+  const [products, setProducts] = useState({ docs: [] });
+
+  useEffect(() => {
+
+    getProducts()
+      .then(data => {
+        setProducts(data);
+        console.log(data);
+        
+      });
+  }, [products]);
+
+
   return (
-    <div className='cards__container'>
-    
-        <Card style={{ width: '15rem', height:"17rem" }} className='card__product'>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-      <Card.Body>
-        <Card.Title className='product--text'>Card Title</Card.Title>
-        <Card.Text className='product--text'>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item className='product--text'>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Vestibulum at eros</ListGroup.Item>
-      </ListGroup>
-      <Card.Body>
-        <Card.Link href="#" className='product--text'>Card Link</Card.Link>
-        <Card.Link href="#" className='product--text'>Another Link</Card.Link>
-      </Card.Body>
-    </Card>
+    <>
+      <div className='cards__container'>
 
-         <Card style={{ width: '15rem', height:"17rem" }} className='card__product'>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-      <Card.Body>
-        <Card.Title className='product--text'>Card Title</Card.Title>
-        <Card.Text className='product--text'>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item className='product--text'>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Vestibulum at eros</ListGroup.Item>
-      </ListGroup>
-      <Card.Body>
-        <Card.Link href="#" className='product--text'>Card Link</Card.Link>
-        <Card.Link href="#" className='product--text'>Another Link</Card.Link>
-      </Card.Body>
-    </Card>
+        {
+          products?.docs.map(prod => (
+            <Item product={prod} key={prod._id} />
+          ))
+        }
 
-         <Card style={{ width: '15rem', height:"17rem" }} className='card__product'>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-      <Card.Body>
-        <Card.Title className='product--text'>Card Title</Card.Title>
-        <Card.Text className='product--text'>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item className='product--text'>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Vestibulum at eros</ListGroup.Item>
-      </ListGroup>
-      <Card.Body>
-        <Card.Link href="#" className='product--text'>Card Link</Card.Link>
-        <Card.Link href="#" className='product--text'>Another Link</Card.Link>
-      </Card.Body>
-    </Card>
+      </div>
 
-         <Card style={{ width: '15rem', height:"17rem" }} className='card__product'>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-      <Card.Body>
-        <Card.Title className='product--text'>Card Title</Card.Title>
-        <Card.Text className='product--text'>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item className='product--text'>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Vestibulum at eros</ListGroup.Item>
-      </ListGroup>
-      <Card.Body>
-        <Card.Link href="#" className='product--text'>Card Link</Card.Link>
-        <Card.Link href="#" className='product--text'>Another Link</Card.Link>
-      </Card.Body>
-    </Card>
-         <Card style={{ width: '15rem', height:"17rem" }} className='card__product'>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-      <Card.Body>
-        <Card.Title className='product--text'>Card Title</Card.Title>
-        <Card.Text className='product--text'>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item className='product--text'>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Vestibulum at eros</ListGroup.Item>
-      </ListGroup>
-      <Card.Body>
-        <Card.Link href="#" className='product--text'>Card Link</Card.Link>
-        <Card.Link href="#" className='product--text'>Another Link</Card.Link>
-      </Card.Body>
-    </Card>
+      <div id="buttonProducts__container">
+        
+        { products?.hasNextPage && <Button className="button--change">Pagina Siguiente</Button> }
+        { products?.hasPrevPage && <Button className="button--change">Pagina Anterior</Button> }
+      </div>
+    </>
 
-          <Card style={{ width: '15rem', height:"17rem" }} className='card__product'>
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-      <Card.Body>
-        <Card.Title className='product--text'>Card Title</Card.Title>
-        <Card.Text className='product--text'>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-      </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item className='product--text'>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item className='product--text'>Vestibulum at eros</ListGroup.Item>
-      </ListGroup>
-      <Card.Body>
-        <Card.Link href="#" className='product--text'>Card Link</Card.Link>
-        <Card.Link href="#" className='product--text'>Another Link</Card.Link>
-      </Card.Body>
-    </Card>
-
-    </div>
   );
 }
 

@@ -5,7 +5,7 @@ $fontPage: "monospace";
 * {
     padding: 0px;
     margin: 0px;
-     box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -101,7 +101,7 @@ body {
     margin-left: 2.2rem;
     border: 1px solid white;
 
-    .cards__container{
+    .cards__container {
         margin-left: 5rem;
         margin-right: 1rem;
         display: flex;
@@ -110,7 +110,26 @@ body {
         gap: 1rem;
     }
 
-    .card__product{
+    #buttonProducts__container {
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+
+        .button--change {
+        width: 7rem !important;
+        margin-right: 1rem;
+        font-size: 12px;
+        height: 2rem;
+        background-color: $color-borde;
+        font-family: $fontPage;
+    }
+    }
+
+    
+
+    .card__product {
         outline: 2px solid red;
     }
 
@@ -172,46 +191,50 @@ body {
     }
 
     .form-page::before {
-    content: "";
-    position: absolute;
-    inset: -4px;
-    border-radius: inherit;
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: inherit;
 
-    background: conic-gradient(from 0deg,
-            transparent 0%,
-            #00ff00 10%,
-            #b3ffb3 20%,
-            transparent 30%,
-            #00ff00 40%,
-            transparent 60%,
-            #b3ffb3 75%,
-            transparent 100%);
+        background: conic-gradient(from 0deg,
+                transparent 0%,
+                #00ff00 10%,
+                #b3ffb3 20%,
+                transparent 30%,
+                #00ff00 40%,
+                transparent 60%,
+                #b3ffb3 75%,
+                transparent 100%);
 
-    animation: spin 1.2s linear infinite;
-    z-index: 0;
-}
+        animation: spin 1.2s linear infinite;
+        z-index: 0;
+    }
 
-.form-page::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border-radius: inherit;
-    background: #000;
-    z-index: 1;
-}
+    .form-page::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        border-radius: inherit;
+        background: #000;
+        z-index: 1;
+    }
 
-.form-page>* {
-    position: relative;
-    z-index: 2;
-}
+    .form-page>* {
+        position: relative;
+        z-index: 2;
+    }
 
-.product--text{
-    font-size: 12px;
-}
+    .product--text {
+        font-size: 12px;
+    }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
     }
 }
+
+#footer {
+    color: white;
 }
