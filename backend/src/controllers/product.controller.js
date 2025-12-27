@@ -13,8 +13,10 @@ export const generateProductTest= async (req,res) => {
 
 export const getProducts= async (req,res) => {
 
+    const page= req.query.page || 1;
+
     try {
-        const products= await ProductRepository.getProducts();
+        const products= await ProductRepository.getProducts(page);
         return res.status(201).send({result:true, dataResult: products});
 
     } catch (error) {

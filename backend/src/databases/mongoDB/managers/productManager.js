@@ -18,10 +18,12 @@ class ProductManager {
         }
     }
 
-    async getProducts() {
+    async getProducts(page) {
         try {
             
-            const products = await productModel.paginate({}, {limit:10});
+            const products = await productModel.paginate({}, {
+                limit:10,
+                page});
 
             if (!products) throw new Error("Fail to seach products in database");
 

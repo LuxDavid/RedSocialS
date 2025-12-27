@@ -5,7 +5,7 @@ class ProductService{
     }
 
     createProductsTest= async () => this.dao.createProductsTest();
-    getProducts= async() =>this.dao.getProducts();
+    getProducts= async(page) =>this.dao.getProducts(page);
 }
 
 export default ProductService;
