@@ -43,8 +43,9 @@ function ItemListContainer() {
 
       <div id="buttonProducts__container">
         
-        { products?.hasNextPage && <Button className="button--change" onClick={nextPage}>Pagina Siguiente</Button> }
         { products?.hasPrevPage && <Button className="button--change" onClick={prevPage}>Pagina Anterior</Button> }
+        { products?.hasNextPage && <Button className="button--change" onClick={nextPage}>Pagina Siguiente</Button> }
+        
       </div>
     </>
 

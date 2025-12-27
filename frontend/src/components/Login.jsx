@@ -1,7 +1,10 @@
 import React from 'react';
 import { useForm } from '../hooks/useForm.jsx';
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
+
+  const navigate= useNavigate();
 
     // const listOFUsers= async (e) => {
     //         e.preventDefault();
@@ -50,6 +53,8 @@ const Login = () => {
               credentials:'include',
               body:JSON.stringify(userData),
             });
+
+            return navigate("/")
 
     }
 

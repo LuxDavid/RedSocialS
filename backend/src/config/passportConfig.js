@@ -38,19 +38,19 @@ const initializePassport= () => {
                     return done(null, false)
                 }
 
-                if(!isValidPassword(user.data[0],password)){
+                if(!isValidPassword(user.dataFinal[0],password)){
                     return done(null, false);
                 }
         
-                const token= generateToken(user.data[0]);
+                const token= generateToken(user.dataFinal[0]);
 
-                user.data[0].token=token;
+                user.dataFinal[0].token=token;
 
-                user.data[0].lastConnection= DateTime.now().toLocaleString();
+                user.dataFinal[0].lastConnection= DateTime.now().toLocaleString();
 
-                await UserRepository.updateUser(user.data[0]._id, user);
+                await UserRepository.updateUser(user.dataFinal[0]._id, user);
 
-                return done(null,user.data[0]);
+                return done(null,user.dataFinal[0]);
 
             } catch (error) {
                 return done('Error login'+error);
