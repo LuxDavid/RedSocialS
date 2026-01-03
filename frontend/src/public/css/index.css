@@ -1,11 +1,77 @@
-* {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
+.form-page {
+  margin-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 22rem;
+  height: 20rem;
+  background: transparent;
+  color: #0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px #0f0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.form-page input[type=submit] {
+  height: 2rem;
+  background-color: #141414;
+  color: #03f484;
+  cursor: pointer;
+  font-family: "monospace";
+  font-size: 15px;
+  width: 17rem;
+}
+.form-page input[type=submit]:hover {
+  background-color: #03f484;
+  box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
+  color: white;
+}
+.form-page .login-input:focus {
+  box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
+}
+.form-page .labels-login {
+  font-family: "monospace";
+  color: white;
+  width: 17rem;
+  margin-bottom: 1rem;
+  font-size: 17px;
+}
+.form-page .login-input {
+  margin-bottom: 2rem;
+  height: 1.5rem;
+  border-radius: 10px;
+  width: 17rem;
+  font-size: 12px;
 }
 
-body {
-  background-color: #1b1b1b;
+.form-page::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, transparent 0%, #00ff00 10%, #b3ffb3 20%, transparent 30%, #00ff00 40%, transparent 60%, #b3ffb3 75%, transparent 100%);
+  animation: spin 1.2s linear infinite;
+  z-index: 0;
+}
+
+.form-page::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: inherit;
+  background: #000;
+  z-index: 1;
+}
+
+.form-page > * {
+  position: relative;
+  z-index: 2;
 }
 
 #layout__header {
@@ -19,11 +85,13 @@ body {
   background-color: #141414;
   z-index: 1000;
 }
-#layout__header .layout__header--logo {
+
+.layout__header--logo {
   width: 4rem;
   height: 3rem;
 }
-#layout__header #logo_container {
+
+#logo_container {
   margin-top: 0.3rem;
   margin-left: 1rem;
   width: 2.5rem;
@@ -37,6 +105,7 @@ body {
   align-items: center;
   box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
 }
+
 @keyframes cicloDeColorBorde {
   0% {
     border-color: white;
@@ -60,7 +129,7 @@ body {
     border-color: white;
   }
 }
-#layout__header .nav__container {
+.nav__container {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -68,7 +137,8 @@ body {
   width: 100%;
   height: 100%;
 }
-#layout__header .nav__container .nav__item--link {
+
+.nav__item--link {
   color: white;
   text-decoration: none;
   color: #0f0;
@@ -86,126 +156,17 @@ body {
   margin-left: 2.2rem;
   border: 1px solid white;
 }
-#layout__content .cards__container {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 4.4rem;
-  gap: 1rem;
-}
-#layout__content #buttonProducts__container {
-  width: 100%;
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-#layout__content #buttonProducts__container .button--change {
-  width: 7rem !important;
-  margin-right: 1rem;
-  font-size: 12px;
-  height: 2rem;
-  background-color: #03f484;
-  font-family: "monospace";
-}
-#layout__content .form-page {
-  margin-top: 4rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 22rem;
-  height: 20rem;
-  background: transparent;
-  color: #0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: monospace;
-  letter-spacing: 3px;
-  text-shadow: 0 0 10px #0f0;
-  border-radius: 14px;
-  overflow: hidden;
-}
-#layout__content .form-page input[type=submit] {
-  height: 2rem;
-  background-color: #141414;
-  color: #03f484;
-  cursor: pointer;
-  font-family: "monospace";
-  font-size: 15px;
-  width: 17rem;
-}
-#layout__content .form-page input[type=submit]:hover {
-  background-color: #03f484;
-  box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
-  color: white;
-}
-#layout__content .form-page .login-input:focus {
-  box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
-}
-#layout__content .form-page .labels-login {
-  font-family: "monospace";
-  color: white;
-  width: 17rem;
-  margin-bottom: 1rem;
-  font-size: 17px;
-}
-#layout__content .form-page .login-input {
-  margin-bottom: 2rem;
-  height: 1.5rem;
-  border-radius: 10px;
-  width: 17rem;
-  font-size: 12px;
-}
-#layout__content .form-page::before {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: inherit;
-  background: conic-gradient(from 0deg, transparent 0%, #00ff00 10%, #b3ffb3 20%, transparent 30%, #00ff00 40%, transparent 60%, #b3ffb3 75%, transparent 100%);
-  animation: spin 1.2s linear infinite;
-  z-index: 0;
-}
-#layout__content .form-page::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-radius: inherit;
-  background: #000;
-  z-index: 1;
-}
-#layout__content .form-page > * {
-  position: relative;
-  z-index: 2;
-}
-#layout__content .product--text {
-  font-size: 12px;
-}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
-
 #footer {
   color: white;
 }
 
-.outline--buton {
-  font-size: 12px;
-  font-family: "monospace";
-  color: #03f484;
-  border: 1px solid #03f484;
-}
-
-.outline--buton:hover {
-  background-color: #03f484;
-  box-shadow: 0 0 2px #0f0, 0 0 2px #0f0, 0 0 2px #0f0;
-  color: white;
-  border: 1px solid #03f484;
-}
-
+/*---------------------------Products Cards----------------*/
 .product--text--card {
   text-decoration: none;
   font-family: "monospace";
@@ -223,18 +184,138 @@ body {
   height: 36%;
 }
 
-.Item__detail .detail__item {
+.outline--buton {
+  font-size: 12px;
+  font-family: "monospace";
+  color: #03f484;
+  border: 1px solid #03f484;
+}
+
+.outline--buton:hover,
+.button--change:hover {
+  background-color: #03f484;
+  box-shadow: 0 0 2px #0f0, 0 0 2px #0f0, 0 0 2px #0f0;
+  color: white;
+  border: 1px solid #03f484;
+}
+
+.cards__container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 4.4rem;
+  gap: 1rem;
+}
+
+#buttonProducts__container {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.button--change {
+  width: 7rem !important;
+  margin-right: 1rem;
+  font-size: 12px;
+  height: 2rem;
+  background-color: #03f484;
+  font-family: "monospace";
+  border: #03f484;
+}
+
+.product--text {
+  font-size: 12px;
+}
+
+/*---------------------------Info Product Card----------------*/
+.Item__detail {
+  margin-top: 2rem;
+}
+
+.detail__item {
   display: flex;
 }
-.Item__detail .detail__item .detail__img {
+
+.detail__img {
   width: 337px;
   height: 338px;
+  margin-right: 1.5rem;
 }
 
 .item__info {
-  width: 350px;
-  height: 350px;
-  background-color: red;
+  width: 482px;
+  height: 467px;
+  background-color: #121212;
+}
+
+.info__text {
+  color: white;
+}
+
+/*--------------------------Carrousel img products-----------------------*/
+.mini-carousel {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.viewport {
+  overflow: hidden;
+  width: 68%;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.35s ease;
+}
+
+.item {
+  flex: 0 0 25%;
+  padding: 4px;
+}
+
+.item img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 10px;
+  user-select: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  margin-right: 11rem;
+}
+
+.controls button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  background: white;
+}
+
+.controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+hr {
+  border: 1px solid white;
+}
+
+body {
+  background-color: #1b1b1b;
 }
 
 /*# sourceMappingURL=index.css.map */

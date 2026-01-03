@@ -1,0 +1,92 @@
+@use "variables" as v;
+
+.form-page {
+        margin-top: 4rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 22rem;
+        height: 20rem;
+        background: transparent;
+        color: #0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        letter-spacing: 3px;
+        text-shadow: 0 0 10px #0f0;
+        border-radius: 14px;
+        overflow: hidden;
+
+        input[type=submit] {
+            height: 2rem;
+            background-color: #141414;
+            color: #03f484;
+            cursor: pointer;
+            font-family: v.$fontPage;
+            font-size: 15px;
+            width: 17rem;
+        }
+
+        input[type=submit]:hover {
+            background-color: v.$color-borde;
+            box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
+            color: white;
+        }
+
+        .login-input:focus {
+            box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
+        }
+
+        .labels-login {
+            font-family: v.$fontPage;
+            color: white;
+            width: 17rem;
+            margin-bottom: 1rem;
+            font-size: 17px;
+        }
+
+        .login-input {
+            margin-bottom: 2rem;
+            height: 1.5rem;
+            border-radius: 10px;
+            width: 17rem;
+            font-size: 12px;
+        }
+    }
+
+    .form-page::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: inherit;
+
+        background: conic-gradient(from 0deg,
+                transparent 0%,
+                #00ff00 10%,
+                #b3ffb3 20%,
+                transparent 30%,
+                #00ff00 40%,
+                transparent 60%,
+                #b3ffb3 75%,
+                transparent 100%);
+
+        animation: spin 1.2s linear infinite;
+        z-index: 0;
+    }
+
+    .form-page::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        border-radius: inherit;
+        background: #000;
+        z-index: 1;
+    }
+
+    .form-page>* {
+        position: relative;
+        z-index: 2;
+    }

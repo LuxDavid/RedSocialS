@@ -16,7 +16,7 @@ export const getProducts = async (page) => {
 
 export const getProduct = async (productID) => {
 
-    const request = await fetch(`http://localhost:8080/api/products/${productID}`, {
+    const request = await fetch(`http://localhost:8080/api/products/product/${productID}`, {
         method: "GET",
         headers: {
             "Content-type": "application/json"
@@ -25,6 +25,8 @@ export const getProduct = async (productID) => {
 
     const dataInfo = await request.json();
     const dataProducts= dataInfo.dataResult.dataFinal
+
+    console.log(dataProducts);
     
     return dataProducts
 
