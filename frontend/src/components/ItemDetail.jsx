@@ -1,14 +1,16 @@
 import React from 'react';
-import {useParams} from "react-router-dom";
+import productImgTest from "../public/img/producto-prueba.jpg"
+import Item_info from './Item_info.jsx';
 
-
-const ItemDetail = () => {
-
-    const params= useParams();
-    // console.log(params.id);
-    
+const ItemDetail = ({product}) => {
   return (
-    <div>Product Detail</div>
+    <div className='Item__detail'>
+        <div className="detail__item">
+            <img src={productImgTest} alt="" className='detail__img' />
+            <Item_info/>
+        </div>
+         
+    </div>
   )
 }
 

@@ -17,7 +17,21 @@ export const getProducts= async (req,res) => {
 
     try {
         const products= await ProductRepository.getProducts(page);
+        console.log(products);
+        
         return res.status(201).send({result:true, dataResult: products});
+
+    } catch (error) {
+        res.status(500).send({ status: 'error', message: 'Fail data in database', error });
+    }
+}
+
+export const getProduct= async (req,res) => {
+
+    try {
+        const pid= req.params.pid;
+        const products= await ProductRepository.getProduct(pid);
+        return res.status(200).send({result:true, dataResult: products});
 
     } catch (error) {
         res.status(500).send({ status: 'error', message: 'Fail data in database' });

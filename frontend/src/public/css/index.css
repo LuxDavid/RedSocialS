@@ -217,8 +217,24 @@ body {
   text-shadow: 0 0 1px #0f0, 0 0 1px #0f0, 0 0 1px #0f0;
 }
 
-.card-img, .card-img-bottom, .card-img-top {
+.card-img,
+.card-img-bottom,
+.card-img-top {
   height: 36%;
+}
+
+.Item__detail .detail__item {
+  display: flex;
+}
+.Item__detail .detail__item .detail__img {
+  width: 337px;
+  height: 338px;
+}
+
+.item__info {
+  width: 350px;
+  height: 350px;
+  background-color: red;
 }
 
 /*# sourceMappingURL=index.css.map */

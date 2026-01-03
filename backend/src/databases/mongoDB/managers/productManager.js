@@ -1,13 +1,13 @@
 import { productModel } from "../models/productModel.js";
-import {generateProduct} from "../../../utils/faker.js";
+import { generateProduct } from "../../../utils/faker.js";
 import { responseMannager } from "../../../helpers/responses.js";
 
 class ProductManager {
 
     async createProductsTest() {
         try {
-            const productsTest= generateProduct();
-            
+            const productsTest = generateProduct();
+
             const productsCreated = await productModel.create(productsTest);
 
             const result = responseMannager(true, productsCreated, "Products test created");
@@ -20,10 +20,11 @@ class ProductManager {
 
     async getProducts(page) {
         try {
-            
+
             const products = await productModel.paginate({}, {
-                limit:10,
-                page});
+                limit: 10,
+                page
+            });
 
             if (!products) throw new Error("Fail to seach products in database");
 
@@ -34,6 +35,21 @@ class ProductManager {
             return result;
         }
     }
+
+    async getProduct(pid) {
+        try {
+            const product = await productModel.findOne({ _id: pid });
+
+            if (!product) throw new Error("Fail to seach product in database");
+
+            const result = responseMannager(true, product, "List of products");
+            return result;
+        } catch (error) {
+            const result = responseMannager(false, null, 'Fail to search products', error.message);
+            return result;
+        }
+    }
 }
+
 
 export default ProductManager;

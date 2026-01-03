@@ -1,9 +1,9 @@
 import {Router} from "express";
-import { generateProductTest, getProducts } from "../controllers/product.controller.js";
+import { generateProductTest, getProducts, getProduct } from "../controllers/product.controller.js";
 
 const router= Router();
 
-router.get("/", (req,res)=> res.send("Router de Products"));
+router.get("/product/:pid", getProduct);
 
 router.get("/testProducts", getProducts);
 

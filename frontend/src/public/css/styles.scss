@@ -115,13 +115,13 @@ body {
         margin-top: 1rem;
 
         .button--change {
-        width: 7rem !important;
-        margin-right: 1rem;
-        font-size: 12px;
-        height: 2rem;
-        background-color: $color-borde;
-        font-family: $fontPage;
-    }
+            width: 7rem !important;
+            margin-right: 1rem;
+            font-size: 12px;
+            height: 2rem;
+            background-color: $color-borde;
+            font-family: $fontPage;
+        }
     }
 
     .form-page {
@@ -154,7 +154,7 @@ body {
             width: 17rem;
         }
 
-        input[type=submit]:hover{
+        input[type=submit]:hover {
             background-color: #03f484;
             box-shadow: 0 0 10px #0f0, 0 0 10px #0f0, 0 0 10px #0f0;
             color: white;
@@ -230,31 +230,52 @@ body {
     color: white;
 }
 
-.outline--buton{
+.outline--buton {
     font-size: 12px;
     font-family: $fontPage;
     color: $color-borde;
     border: 1px solid $color-borde;
 }
 
- .outline--buton:hover{
-            background-color: #03f484;
-            box-shadow: 0 0 2px #0f0, 0 0 2px #0f0, 0 0 2px #0f0;
-            color: white;
-            border: 1px solid $color-borde;
-        }
+.outline--buton:hover {
+    background-color: #03f484;
+    box-shadow: 0 0 2px #0f0, 0 0 2px #0f0, 0 0 2px #0f0;
+    color: white;
+    border: 1px solid $color-borde;
+}
 
-.product--text--card{
+.product--text--card {
     text-decoration: none;
     font-family: $fontPage;
     color: $color-borde;
     font-size: 15px;
 }
 
-.product--text--card:hover{
-   text-shadow: 0 0 1px #0f0, 0 0 1px #0f0, 0 0 1px #0f0;
+.product--text--card:hover {
+    text-shadow: 0 0 1px #0f0, 0 0 1px #0f0, 0 0 1px #0f0;
 }
 
-.card-img, .card-img-bottom, .card-img-top {
+.card-img,
+.card-img-bottom,
+.card-img-top {
     height: 36%;
+}
+
+.Item__detail {
+    .detail__item {
+        display: flex;
+
+        .detail__img {
+            width: 337px;
+            height: 338px;
+        }
+    }
+}
+
+
+
+.item__info {
+    width: 350px;
+    height: 350px;
+    background-color: red;
 }

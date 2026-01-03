@@ -7,7 +7,8 @@ export const login= (req,res) => {
     }).status(200).send({
         success:true,
         message:"Login success",
-        email:req.user.email
+        email:req.user.email,
+        token:req.user.token
     });
 }
 

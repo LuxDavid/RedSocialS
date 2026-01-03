@@ -12,7 +12,7 @@ const Item = ({product}) => {
 
     return (
         <>
-            <Card style={{ width: '15rem', height: "24.5rem", paddingBottom:'0.5rem' }} className='card__product'>
+            <Card style={{ width: '15.5rem', height: "24.5rem", paddingBottom:'0.5rem' }} className='card__product'>
                 <Card.Img variant="top" src={product.thumbnails.length === 0 ? productImgTest : product.thumbnails } />
                 <Card.Body>
                     <Card.Title className='product--text'>{product.title}</Card.Title>
