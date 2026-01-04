@@ -2,6 +2,7 @@ import Item from "./Item.jsx";
 import { useState, useEffect } from "react";
 import { getProducts } from "../databases/mongoDB/products.db.js";
 import Button from 'react-bootstrap/Button';
+import Aside from "./Layout/Aside.jsx";
 
 function ItemListContainer() {
 
@@ -31,6 +32,7 @@ function ItemListContainer() {
 
   return (
     <>
+      <Aside/>
       <div className='cards__container'>
 
         {
@@ -47,6 +49,8 @@ function ItemListContainer() {
         { products?.hasNextPage && <Button className="button--change" onClick={nextPage}>Pagina Siguiente</Button> }
         
       </div>
+
+      
     </>
 
   );

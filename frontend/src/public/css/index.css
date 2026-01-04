@@ -93,7 +93,8 @@
 
 #logo_container {
   margin-top: 0.3rem;
-  margin-left: 1rem;
+  margin-left: 4rem;
+  margin-top: 0.5rem;
   width: 2.5rem;
   height: 2.5rem;
   border: 2px solid;
@@ -150,6 +151,7 @@
 #layout__content {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   padding-top: 5rem;
   min-height: 100vh;
   width: 95%;
@@ -202,7 +204,8 @@
 .cards__container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 4.4rem;
+  margin-left: 1rem;
+  width: 70%;
   gap: 1rem;
 }
 
@@ -304,10 +307,66 @@
   cursor: not-allowed;
 }
 
+.aside__menu {
+  width: 16.5rem;
+  min-height: 45rem;
+  max-height: 69rem;
+  margin-right: 1rem;
+  margin-left: 8rem;
+}
+
+.menu__header {
+  display: flex;
+  border: 1px solid white;
+  height: 4rem;
+  padding-top: 0.5rem;
+}
+.menu__header .menu__button,
+.menu__header p {
+  color: white;
+  font-family: "monospace";
+  font-size: 27px;
+  padding-left: 1.5rem;
+}
+.menu__header .menu__button {
+  margin-right: 1rem;
+  font-size: 45px;
+  line-height: 45px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.menu__button:hover {
+  color: #03f484;
+}
+
+.categorys__item {
+  color: white;
+  list-style: none;
+  text-align: center;
+  font-family: "monospace";
+  font-size: 1.4rem;
+  border: 1px solid white;
+  height: 3rem;
+  line-height: 3rem;
+}
+
+.categorys__item:hover {
+  background-color: #444;
+  color: #03f484;
+  transition: all 300ms;
+  border-left: 5px solid #03f484;
+}
+
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+}
+
+ul, ol {
+  padding-left: 0;
+  margin: 0;
 }
 
 hr {

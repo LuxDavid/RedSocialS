@@ -1,0 +1,54 @@
+@use "variables" as v;
+
+.aside__menu {
+    width: 16.5rem;
+    min-height: 45rem;
+    max-height: 69rem;
+    margin-right: 1rem;
+    margin-left: 8rem;
+}
+
+.menu__header {
+    display: flex;
+    border: 1px solid white;
+    height: 4rem;
+    padding-top:0.5rem ;
+
+    .menu__button,
+    p {
+        color: white;
+        font-family: v.$fontPage;
+        font-size: 27px;
+        padding-left: 1.5rem;
+    }
+
+    .menu__button{
+        margin-right: 1rem;
+        font-size: 45px;
+        line-height: 45px;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+    .menu__button:hover{
+        color: v.$color-borde;
+    }
+
+.categorys__item{
+    color: white;
+    list-style: none;
+    text-align: center;
+    font-family: v.$fontPage;
+    font-size: 1.4rem;
+    border: 1px solid white;
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.categorys__item:hover{
+    background-color: #444;
+    color: v.$color-borde;
+    transition: all 300ms;
+    border-left: 5px solid v.$color-borde;
+}

@@ -1,11 +1,17 @@
 @use 'formLogin.scss';
 @use 'layout.scss';
 @use 'products.scss';
+@use 'aside.scss';
 
 * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+}
+
+ul, ol {
+  padding-left: 0;
+  margin: 0;
 }
 
 hr{
