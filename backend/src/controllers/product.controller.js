@@ -1,51 +1,74 @@
 import { ProductRepository } from "../services/index.js";
 
-export const generateProductTest= async (req,res) => {
+export const generateProductTest = async (req, res) => {
 
     try {
-        const products= await ProductRepository.createProductsTest();
-        return res.status(201).send({result:true, dataResult: products, message:"Productos de prueba creados correctamente"});
+        const products = await ProductRepository.createProductsTest();
+        return res.status(201).send({ result: true, dataResult: products, message: "Productos de prueba creados correctamente" });
 
     } catch (error) {
         res.status(500).send({ status: 'error', message: 'Fail data in database' });
     }
 }
 
-export const getProducts= async (req,res) => {
+export const getProducts = async (req, res) => {
 
-    const page= req.query.page || 1;
+    const page = req.query.page || 1;
 
     try {
-        const products= await ProductRepository.getProducts(page);
-        return res.status(201).send({result:true, dataResult: products, message:"List of products"});
+        const products = await ProductRepository.getProducts(page);
+        return res.status(201).send({ result: true, dataResult: products, message: "List of products" });
 
     } catch (error) {
         res.status(500).send({ status: 'error', message: 'Fail data in database', error });
     }
 }
 
-export const getProduct= async (req,res) => {
+export const getProduct = async (req, res) => {
 
     try {
-        const pid= req.params.pid;
-        const products= await ProductRepository.getProduct(pid);
-        return res.status(200).send({result:true, dataResult: products, message:"Producto encontrado"});
+        const pid = req.params.pid;
+        const products = await ProductRepository.getProduct(pid);
+        return res.status(200).send({ result: true, dataResult: products, message: "Producto encontrado" });
 
     } catch (error) {
         res.status(500).send({ status: 'error', message: 'Fail data in database' });
     }
 }
 
-export const deleteProduct=async (req,res) => {
+export const deleteProduct = async (req, res) => {
     try {
-        const pid=req.params.pid;
-        const product= await ProductRepository.deleteProduct(pid);
-        return res.status(200).send({result:true, dataResult:product, message:"Producto eliminado correctamente"});
+        const pid = req.params.pid;
+        const product = await ProductRepository.deleteProduct(pid);
+        return res.status(200).send({ result: true, dataResult: product, message: "Producto eliminado correctamente" });
     } catch (error) {
         res.status(500).send({ status: 'error', message: 'Fail data in database' });
     }
 }
 
-export const updateProduct=async() => {
-    
+export const updateProduct = async (req, res) => {
+    try {
+        const pid = req.params.pid;
+        const data = req.body;
+        const product = await ProductRepository.updateProduct(pid, data);
+        return res.status(200).send({ result: true, dataResult: product, message: "Producto actualizado correctamente" });
+    } catch (error) {
+        res.status(500).send({ status: 'error', message: 'Fail data in database' });
+    }
+}
+
+export const createProduct = async (req, res) => {
+    try {
+
+        if (req.files) {
+            req.body.thumbnails = [];
+            req.files.forEach(file => req.body.thumbnails.push(file.fileName));
+        }
+
+        const data = req.body;
+        const product = await ProductRepository.createProduct(data);
+        return res.status(200).send({ result: true, dataResult: product, message: "Producto creado correctamente" });
+    } catch (error) {
+        res.status(500).send({ status: 'error', message: 'Fail data in database' });
+    }
 }

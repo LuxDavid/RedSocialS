@@ -1,6 +1,7 @@
 import { productModel } from "../models/productModel.js";
 import { generateProduct } from "../../../utils/faker.js";
 import { responseMannager } from "../../../helpers/responses.js";
+import { generateCode } from "../../../helpers/generateCode.js";
 
 class ProductManager {
 
@@ -64,7 +65,37 @@ class ProductManager {
     }
 
     async updateProduct(pid, data){
-        
+        try {
+
+            if(req.files){
+                req.body.thumbnails=[];
+                req.files.forEach(file => req.body.thumbnails.push(file.fileName));
+            }
+
+            const product = await productModel.findByIdAndUpdate(pid, data, {new:true});
+
+            const result = responseMannager(true, product, "Product updated");
+            return result;
+        } catch (error) {
+            const result = responseMannager(false, null, 'Fail to update product', error.message);
+            return result;
+        }
+    }
+
+    async createProduct(data){
+        try {
+
+            const product=data;
+            product.code=generateCode();
+
+            const createProduct= await productModel.create(product);
+            
+            const result = responseMannager(true, createProduct, "Product created");
+            return result;
+        } catch (error) {
+            const result = responseMannager(false, null, 'Fail to create product', error.message);
+            return result;
+        }
     }
 }
 
