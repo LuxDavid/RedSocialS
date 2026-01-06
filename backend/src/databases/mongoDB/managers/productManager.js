@@ -49,6 +49,23 @@ class ProductManager {
             return result;
         }
     }
+
+    async deleteProduct(pid) {
+        try {
+
+            const product = await productModel.findByIdAndDelete(pid);
+
+            const result = responseMannager(true, product, "List of products");
+            return result;
+        } catch (error) {
+            const result = responseMannager(false, null, 'Fail to search products', error.message);
+            return result;
+        }
+    }
+
+    async updateProduct(pid, data){
+        
+    }
 }
 
 
