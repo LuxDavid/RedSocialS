@@ -26,13 +26,13 @@ function ItemListContainer() {
   }
 
   useEffect(() => {
-      productsAjax()
+      productsAjax();
   }, []);
 
 
   return (
     <>
-      <Aside/>
+      <Aside categorys={products?.docs}/>
       <div className='cards__container'>
 
         {

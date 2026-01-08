@@ -8,6 +8,11 @@ const Item_info = ({product}) => {
 
     const [quantity,setQuantity] = useState(1);
 
+    const handleCount = (action) => {
+        if(action === "plus" && quantity < stock) setQuantity(quantity+1);
+        if(action === "minus" && quantity > 1) setQuantity(quantity-1);
+    }
+
     return (
         <div className='item__info'>
                 <p className='info__text'>{title}</p>
@@ -18,7 +23,7 @@ const Item_info = ({product}) => {
                 <p className='info__stock'>${price}</p>
                 <p className='info__stock'>Vendedor: {owner}</p>
                 <hr/>
-                <ItemCount quantity={quantity} stock={stock}/>
+                <ItemCount quantity={quantity} stock={stock} handleCount={handleCount}/>
         </div>
     )
 }

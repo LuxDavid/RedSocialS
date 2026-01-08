@@ -5,7 +5,7 @@ import Login from "../components/Login.jsx";
 import {Authorization, AuthorizationPublic } from "../helpers/Auth.jsx"; 
 import {Link} from "react-router-dom";
 import ItemDetailContainer from "../components/ItemDetailContainer.jsx";
-import Aside from "../components/Layout/Aside.jsx";
+import Checkout from "../components/Checkout.jsx";
 
 export const router= createBrowserRouter([
 
@@ -34,8 +34,8 @@ export const router= createBrowserRouter([
                 element:<ItemDetailContainer/>
             },
             {
-                path:"aside",
-                element:<Aside/>
+                path:"checkout",
+                element:<Checkout/>
             },
                {
                 path:'*',

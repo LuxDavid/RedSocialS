@@ -1,12 +1,17 @@
 import {useState} from 'react';
+import {useNavigate} from "react-router-dom";
 
-const Aside = () => {
+const Aside = ({categorys}) => {
 
     const [open,setOpen]= useState(false);
 
     const toggleMenu = () => {
     setOpen(!open);
   };
+
+    const info=new Set (categorys.map((p => p.category)));
+
+    const navigate= useNavigate();
 
   return (
     <aside className='aside__menu'>
@@ -17,10 +22,9 @@ const Aside = () => {
         {
           open &&  (
           <ul className={`menu__categorys`} >
-            <li className="categorys__item">Hola</li>
-            <li className="categorys__item">Hola</li>
-            <li className="categorys__item">Hola</li>
-            <li className="categorys__item">Hola</li>
+           {[...info].map(category =>(
+           <li className="categorys__item" onClick={() => navigate('/product/694edfc145a368fa4d33277b')}>{category}</li>
+           ))}
         </ul>)
         }
     </aside>

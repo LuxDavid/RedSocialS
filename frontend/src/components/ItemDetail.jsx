@@ -4,6 +4,7 @@ import Item_info from './Item_info.jsx';
 import CarouselMini from './CarouselMini.jsx';
 
 const ItemDetail = ({product}) => {
+
   return (
     <div className='Item__detail'>
         <div className="detail__item">
